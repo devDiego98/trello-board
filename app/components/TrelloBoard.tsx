@@ -7,15 +7,14 @@ import { moveNote } from "../redux/boardSlice";
 const BoardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
 `;
 
 const ColumnContainer = styled.div`
   flex: 1 1 300px;
   padding: 10px;
-`;
-
-const ColumnHeader = styled.h2`
-  margin-bottom: 10px;
+  background: grey;
+  max-width: 350px;
 `;
 
 const Note = styled.div`
@@ -92,56 +91,6 @@ const TrelloBoard: React.FC = () => {
           </Column>
         );
       })}
-      {/* <Column
-        id="todo"
-        onDragOver={handleDragOver}
-        onDrop={(event) => handleDrop(event, 'todo')}
-      >
-        <h2>Todo</h2>
-        {boards.todo.map((note) => (
-          <Note
-            key={note.id}
-            draggable
-            onDragStart={(event) => handleDragStart(event, note.id)}
-          >
-            {note.content}
-          </Note>
-        ))}
-      </Column>
-
-      <Column
-        id="inProgress"
-        onDragOver={handleDragOver}
-        onDrop={(event) => handleDrop(event, 'inProgress')}
-      >
-        <h2>In Progress</h2>
-        {boards.inProgress.map((note) => (
-          <Note
-            key={note.id}
-            draggable
-            onDragStart={(event) => handleDragStart(event, note.id)}
-          >
-            {note.content}
-          </Note>
-        ))}
-      </Column>
-
-      <Column
-        id="done"
-        onDragOver={handleDragOver}
-        onDrop={(event) => handleDrop(event, 'done')}
-      >
-        <h2>Done</h2>
-        {boards.done.map((note) => (
-          <Note
-            key={note.id}
-            draggable
-            onDragStart={(event) => handleDragStart(event, note.id)}
-          >
-            {note.content}
-          </Note>
-        ))}
-      </Column> */}
     </BoardContainer>
   );
 };
