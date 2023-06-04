@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, ChangeEventHandler } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { addNote } from "../redux/boardSlice";
@@ -14,7 +14,7 @@ const AddNote: React.FC<{
   };
 
   const handleCardInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     noteText.current = event.target.value;
   };
@@ -26,9 +26,7 @@ const AddNote: React.FC<{
       noteText: noteText.current,
     };
     dispatch(addNote(payload));
-
     // Reset the component state
-
     noteText.current = "";
     setShowInput(false);
   };
@@ -115,7 +113,6 @@ const AddNote: React.FC<{
         <NoteContainer>
           <InputTextField
             placeholder="This is a sample note"
-            type="text"
             onChange={handleCardInputChange}
           />
           <BtnContainer>

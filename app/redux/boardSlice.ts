@@ -59,6 +59,21 @@ const boardSlice = createSlice({
       const { boardId,noteText} = action.payload;
       boards.find(board=>board.id===boardId)?.notes.push({id:uuidv4(),content:noteText})
     },
+    deleteNote: (state, action: PayloadAction<{noteId:string;  }>) => {
+      const { boards } = state; 
+      const { noteId} = action.payload;
+      for (let i = 0; i < boards.length; i++) {
+        const board = boards[i];
+        const notes = board.notes;
+        for (let j = 0; j < notes.length; j++) {
+          if (notes[j].id === noteId) {
+            notes.splice(j, 1);
+            return // Return true to indicate that the note was deleted
+          }
+        }
+      }
+    },
+    
     addBoard: (state, action: PayloadAction<{boardName:string}>) => {
       const { boards } = state; 
       const { boardName} = action.payload;
@@ -73,7 +88,7 @@ const boardSlice = createSlice({
   },
 });
 
-export const { moveNote,addNote,addBoard } = boardSlice.actions;
+export const { moveNote,addNote,addBoard,deleteNote } = boardSlice.actions;
 
 export const selectBoard = (state: RootState) => state.board;
 
@@ -89,3 +104,4 @@ const findNote = (board:Board,noteId:string) => {
 const foundNoteIndex = board.notes.findIndex(note=>note.id===noteId)
 return foundNoteIndex
 }
+
