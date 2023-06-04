@@ -20,9 +20,7 @@ const AddBoard: React.FC = () => {
   const handleCardSubmit = () => {
     // Handle the submission logic here (e.g., send the cardText to an API, update state, etc.)
     dispatch(addBoard({ boardName: boardName.current }));
-
     // Reset the component state
-
     boardName.current = "";
     setShowInput(false);
   };
