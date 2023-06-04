@@ -7,8 +7,6 @@ Test Login User:
 * Email: eve.holt@reqres.in
 * Password: pistol
 
-Register Endpoint works but does not have any effect since api is mock data. 
-
 Functionalities implemented in Trello Board:
 * Create/Delete a bord
 * Create/Delete a note
@@ -22,3 +20,7 @@ Technologies Used:
 * Styled Components
 * ReqRes api
 * Formik and Yup for form/form validation
+
+Additional Info
+* Register Endpoint works but does not have any effect since api is mock data. 
+* No api(server side code was used in this project as it was not needed)

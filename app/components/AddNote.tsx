@@ -1,4 +1,4 @@
-import React, { useState, useRef, ChangeEventHandler } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { addNote } from "../redux/boardSlice";

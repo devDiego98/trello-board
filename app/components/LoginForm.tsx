@@ -43,7 +43,7 @@ const ChangeFormBtn = styled.div`
   border: none;
   cursor: pointer;
 `;
-const LoginForm: React.FC = () => {
+const LoginForm: React.FC<{ showToast: any }> = ({ showToast }) => {
   const router = useRouter();
   const [isRegister, setIsRegister] = useState(false);
 
@@ -72,6 +72,7 @@ const LoginForm: React.FC = () => {
         router.push("/");
       }
     } catch (error) {
+      showToast(error.response.data.error, "Request Failed");
       console.log(error);
     } finally {
       setSubmitting(false);
