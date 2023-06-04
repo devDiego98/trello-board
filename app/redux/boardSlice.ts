@@ -58,13 +58,22 @@ const boardSlice = createSlice({
       const { boards } = state; 
       const { boardId,noteText} = action.payload;
       boards.find(board=>board.id===boardId)?.notes.push({id:uuidv4(),content:noteText})
-      
+    },
+    addBoard: (state, action: PayloadAction<{boardName:string}>) => {
+      const { boards } = state; 
+      const { boardName} = action.payload;
+      let newBoard = {
+        name:boardName,
+        id:uuidv4(),
+        notes:[]
+      }
+      boards.push(newBoard)
     },
    
   },
 });
 
-export const { moveNote,addNote } = boardSlice.actions;
+export const { moveNote,addNote,addBoard } = boardSlice.actions;
 
 export const selectBoard = (state: RootState) => state.board;
 

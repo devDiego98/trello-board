@@ -4,6 +4,7 @@ import { RootState } from "../redux/store";
 import styled from "styled-components";
 import { moveNote } from "../redux/boardSlice";
 import AddNote from "./AddNote";
+import AddBoard from "./AddBoard";
 // Styled components
 const BoardContainer = styled.div`
   display: flex;
@@ -12,10 +13,15 @@ const BoardContainer = styled.div`
 `;
 
 const ColumnContainer = styled.div`
-  flex: 1 1 300px;
   padding: 10px;
-  background: grey;
-  max-width: 350px;
+  background: #8080805e;
+  border-radius: 8px;
+  min-width: 350px;
+  h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: black;
+  }
 `;
 
 const Note = styled.div`
@@ -23,6 +29,20 @@ const Note = styled.div`
   margin-bottom: 10px;
   background-color: #f9f9f9;
   border-radius: 4px;
+`;
+const NewBoardBtn = styled.button`
+  height: 48px;
+  border-radius: 12px;
+  min-width: 350px;
+  background: rgb(0 0 0 / 57%);
+  color: black;
+  display: flex;
+  align-items: center;
+  padding: 4px 16px;
+  color: white;
+  svg {
+    width: 24px;
+  }
 `;
 // Column component
 const Column: React.FC<{
@@ -93,6 +113,7 @@ const TrelloBoard: React.FC = () => {
           </Column>
         );
       })}
+      <AddBoard />
     </BoardContainer>
   );
 };
