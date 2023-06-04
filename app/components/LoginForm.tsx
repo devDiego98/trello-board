@@ -71,7 +71,7 @@ const LoginForm: React.FC<{ showToast: any }> = ({ showToast }) => {
         sessionStorage.setItem("token", response.data.token);
         router.push("/");
       }
-    } catch (error) {
+    } catch (error: any) {
       showToast(error.response.data.error, "Request Failed");
       console.log(error);
     } finally {
