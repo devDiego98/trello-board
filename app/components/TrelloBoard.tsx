@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import styled from "styled-components";
 import { moveNote } from "../redux/boardSlice";
+import AddNote from "./AddNote";
 // Styled components
 const BoardContainer = styled.div`
   display: flex;
@@ -88,6 +89,7 @@ const TrelloBoard: React.FC = () => {
                 {note.content}
               </Note>
             ))}
+            <AddNote boardId={board.id} />
           </Column>
         );
       })}
